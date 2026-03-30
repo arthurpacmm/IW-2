@@ -1,3 +1,5 @@
+//ARTHUR PEREIRA DE ALMEIDA CAMPOS 
+
 let resultado = document.getElementById("resultado");
 
 
