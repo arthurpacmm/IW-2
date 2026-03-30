@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios JS</title>
+</head>
+<body>
+
+<h1>Resultados</h1>
+<div id="resultado"></div>
+
+<script>
+let resultado = document.getElementById("resultado");
+
+
+// a) Maior entre dois números
+let num1 = Number(prompt("a) Digite o primeiro número:"));
+let num2 = Number(prompt("a) Digite o segundo número:"));
+
+function maiorNumero(a, b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+resultado.innerHTML += "<h2>a) Maior número</h2>";
+resultado.innerHTML += "Maior: " + maiorNumero(num1, num2) + "<br>";
+
+
+// b) Verificar se é par
+let numeroPar = Number(prompt("b) Digite um número:"));
+
+function ehPar(numero) {
+    return numero % 2 === 0;
+}
+
+resultado.innerHTML += "<h2>b) Par ou ímpar</h2>";
+resultado.innerHTML += "É par? " + ehPar(numeroPar) + "<br>";
+
+
+// c) Fatorial
+let numeroFatorial = Number(prompt("c) Digite um número:"));
+
+function fatorial(n) {
+    let resultadoF = 1;
+    for (let i = 1; i <= n; i++) {
+        resultadoF *= i;
+    }
+    return resultadoF;
+}
+
+resultado.innerHTML += "<h2>c) Fatorial</h2>";
+resultado.innerHTML += "Fatorial: " + fatorial(numeroFatorial) + "<br>";
+
+
+// d) Média
+let lista = prompt("d) Digite números separados por vírgula (ex: 10,20,30)")
+    .split(",")
+    .map(Number);
+
+function media(numeros) {
+    let soma = 0;
+    for (let i = 0; i < numeros.length; i++) {
+        soma += numeros[i];
+    }
+    return soma / numeros.length;
+}
+
+resultado.innerHTML += "<h2>d) Média</h2>";
+resultado.innerHTML += "Média: " + media(lista) + "<br>";
+
+
+// e) Celsius para Fahrenheit
+let celsius = Number(prompt("e) Digite a temperatura em Celsius:"));
+
+function celsiusParaFahrenheit(c) {
+    return (c * 9/5) + 32;
+}
+
+resultado.innerHTML += "<h2>e) Celsius para Fahrenheit</h2>";
+resultado.innerHTML += "Fahrenheit: " + celsiusParaFahrenheit(celsius) + "<br>";
+
+</script>
+
+</body>
+</html>
