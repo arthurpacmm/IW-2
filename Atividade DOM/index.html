@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Atividade DOM</title>
+</head>
+
+<body>
+
+    <h1>Atividade DOM</h1>
+
+    <!-- Parte 1 -->
+    <section>
+        <h2>Parte 1 — Pesquisa</h2>
+
+        <div class="pergunta">1. O que é DOM?</div>
+        <div class="resposta">É o Document Object Model. É uma interface que transforma o código HTML estático em uma
+            estrutura de objetos que o JavaScript consegue "ler" e alterar em tempo real. Sem o DOM, o JavaScript não
+            conseguiria mexer na página.</div>
+
+        <div class="pergunta">2. O que é um nó (node)?</div>
+        <div class="resposta">No DOM, a página é uma árvore e cada parte dela é um nó.
+
+            Elementos: São as tags (ex: h1, div).
+
+            Atributos: São as propriedades das tags (ex: class, src).
+
+            Textos: É o conteúdo escrito dentro das tags.</div>
+
+        <div class="pergunta">3. Métodos: getElementById(), querySelector(), querySelectorAll()</div>
+        <div class="resposta">
+            getElementById(): Pega um único elemento pelo seu ID único. <br>
+
+            querySelector(): Pega o primeiro elemento que encontrar usando seletores CSS. <br>
+
+            querySelectorAll(): Pega todos os elementos que combinam com o seletor e coloca em uma lista.
+        </div>
+
+        <div class="pergunta">4. Diferença entre innerHTML e innerText</div>
+        <div class="resposta">
+            innerText: Foca apenas no texto. Se você colocar uma tag HTML lá, ela aparece escrita como texto comum. <br>
+
+            innerHTML: Foca no conteúdo HTML. Ele interpreta as tags (por exemplo, consegue criar um link ou colocar um
+            texto em negrito).
+        </div>
+
+        <div class="pergunta">5. O que são eventos?</div>
+        <div class="resposta">
+            São ações detectadas pelo navegador que geram uma resposta do código.
+
+            onclick: Quando o usuário clica. <br>
+
+            onchange: Quando o valor de um campo muda (comum em formulários). <br>
+
+            onmouseover: Quando o mouse passa por cima de um elemento.
+        </div>
+    </section>
+
+    <section>
+        <h2>Parte 2 — Prática</h2>
+
+        <p id="texto">Texto original</p>
+
+        <button onclick="mudarTexto()">Mudar Texto</button>
+        <button onclick="mudarCor()">Mudar Cor</button>
+        <button onclick="contador()">Contador</button>
+
+        <p id="contador">0</p>
+    </section>
+
+    <script>
+        // 1. Alternar Texto (Infinitamente)
+        function mudarTexto() {
+            let elemento = document.getElementById("texto");
+            
+            if (elemento.innerText === "Texto alterado!") {
+                elemento.innerText = "Texto original";
+            } else {
+                elemento.innerText = "Texto alterado!";
+            }
+        }
+    
+        // 2. Alternar Cor de Fundo
+        function mudarCor() {
+            // Cor original que está no seu novo CSS (Cyber Night)
+            let corOriginal = "radial-gradient(circle at 50% -20%, #1a2a2f, #0b0e14)";
+            let corNova = "linear-gradient(135deg, #4facfe, #00f2fe)";
+    
+            // Se o background atual for igual à cor nova, volta para a original
+            if (document.body.style.background.includes("linear-gradient")) {
+                document.body.style.background = corOriginal;
+            } else {
+                document.body.style.background = corNova;
+            }
+        }
+    
+        // 3. Contador (Mantido conforme o original)
+        let numero = 0;
+        function contador() {
+            numero++;
+            document.getElementById("contador").innerText = numero;
+        }
+    </script>
+
+</body>
+
+</html>
